@@ -1,0 +1,21 @@
+server:
+  port:
+    8082
+
+spring:
+  application:
+    name: api-gateway-application
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+
+zuul:
+  routes:
+    petrol-station-application:
+      path: /petrol-station-application/**
+      url: http://localhost:8080
+    spring-welcome-application:
+      path: /spring-welcome-application/**
+      url: http://localhost:8081
